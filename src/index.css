@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Construction Portfolio Design System - Professional & Modern */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Professional Construction Theme */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    /* Professional Blue Primary */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-muted: 214 84% 96%;
+
+    /* Neutral Grays */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Terracotta Accent */
+    --accent: 14 84% 62%;
+    --accent-foreground: 0 0% 100%;
+    --accent-muted: 14 84% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 84% 56%;
+
+    --radius: 0.75rem;
+
+    /* Construction-specific Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 46%));
+    --accent-gradient: linear-gradient(135deg, hsl(14 84% 62%), hsl(14 84% 52%));
+    --surface-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    
+    /* Professional Shadows */
+    --shadow-soft: 0 2px 8px hsl(220 13% 18% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(220 13% 18% / 0.12);
+    --shadow-strong: 0 8px 32px hsl(220 13% 18% / 0.16);
+    
+    /* Smooth Transitions */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary/90 text-primary-foreground 
+           px-8 py-4 rounded-lg font-semibold text-lg
+           shadow-lg hover:shadow-xl transform hover:-translate-y-0.5
+           transition-all duration-300 ease-out;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent to-accent/90 text-accent-foreground 
+           px-6 py-3 rounded-lg font-medium
+           shadow-md hover:shadow-lg transform hover:-translate-y-0.5
+           transition-all duration-300 ease-out;
+  }
+
+  /* Service Cards */
+  .service-card {
+    @apply bg-card border border-border rounded-xl p-6
+           shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)]
+           transform hover:-translate-y-1 transition-all duration-300 ease-out;
+  }
+
+  /* Project Gallery Cards */
+  .project-card {
+    @apply bg-card rounded-xl overflow-hidden
+           shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-strong)]
+           transform hover:-translate-y-2 transition-all duration-300 ease-out;
+  }
+
+  /* Form Elements */
+  .form-input {
+    @apply w-full px-4 py-3 bg-background border border-input rounded-lg
+           focus:ring-2 focus:ring-primary/20 focus:border-primary
+           transition-colors duration-200;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 bg-background border border-input rounded-lg
+           focus:ring-2 focus:ring-primary/20 focus:border-primary
+           transition-colors duration-200 resize-none;
+  }
+
+  /* Section Animations */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .fade-in-up-delay {
+    @apply opacity-0 translate-y-8;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+  }
+
+  /* Icon hover effects */
+  .icon-bounce {
+    @apply transition-transform duration-300 hover:scale-110;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
